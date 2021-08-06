@@ -1,38 +1,43 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import api from '../constants/ApiValues';
 import { truncate } from '../utils';
 
 const MovieCard = ({ movieItem }) => {
-   console.log(movieItem);
    return (
-      <View style={styles.cardWrap}>
-         <View style={styles.imgWrap}>
-            <Image
-               style={styles.poster}
-               source={{ uri: `${api.posterUrl}/${movieItem.backdrop_path}` }}
-               resizeMode="cover"
-            />
-         </View>
-         <View style={styles.details}>
-            <View style={styles.textWrap}>
-               <Text style={styles.title}>{movieItem.title}</Text>
-            </View>
-            <View style={styles.rating}>
-               <Text style={styles.ratingVote}>{movieItem.vote_average}</Text>
+      <TouchableOpacity activeOpacity={0.5}>
+         <View style={styles.cardWrap}>
+            <View style={styles.imgWrap}>
                <Image
-                  style={styles.ratingIcon}
-                  source={require('../assets/star.png')}
+                  style={styles.poster}
+                  source={{
+                     uri: `${api.posterUrl}/${movieItem.backdrop_path}`,
+                  }}
+                  resizeMode="cover"
                />
-               <Text style={styles.year}>{movieItem.release_date}</Text>
             </View>
-            <View style={styles.textWrap}>
-               <Text style={styles.overview}>
-                  {truncate(movieItem.overview, 150)}
-               </Text>
+            <View style={styles.details}>
+               <View style={styles.textWrap}>
+                  <Text style={styles.title}>{movieItem.title}</Text>
+               </View>
+               <View style={styles.rating}>
+                  <Text style={styles.ratingVote}>
+                     {movieItem.vote_average}
+                  </Text>
+                  <Image
+                     style={styles.ratingIcon}
+                     source={require('../assets/star.png')}
+                  />
+                  <Text style={styles.year}>{movieItem.release_date}</Text>
+               </View>
+               <View style={styles.textWrap}>
+                  <Text style={styles.overview}>
+                     {truncate(movieItem.overview, 150)}
+                  </Text>
+               </View>
             </View>
          </View>
-      </View>
+      </TouchableOpacity>
    );
 };
 
