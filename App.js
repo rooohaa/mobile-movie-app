@@ -1,5 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { MoviesScreen } from './screens/MoviesScreen';
 import Colors from './constants/Colors';
@@ -18,6 +18,6 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: Colors.bgDarkColor,
       alignItems: 'center',
-      paddingVertical: 60,
+      paddingVertical: 55,
    },
 });

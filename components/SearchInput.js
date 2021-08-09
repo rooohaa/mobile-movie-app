@@ -17,11 +17,15 @@ const SearchInput = ({ onSearch }) => {
             style={styles.input}
             value={searchQuery}
             onChangeText={(value) => setSearchQuery(value)}
-            placeholder="Поиск фильмов"
+            placeholder="Search movies"
             keyboardAppearance="dark"
             placeholderTextColor="#888"
          />
-         <Button title="Поиск" color={Colors.primary} onPress={searchHandler} />
+         <Button
+            title="Search"
+            color={Colors.primary}
+            onPress={searchHandler}
+         />
       </View>
    );
 };

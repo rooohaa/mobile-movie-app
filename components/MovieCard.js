@@ -44,7 +44,7 @@ const MovieCard = ({ movieItem }) => {
 const styles = StyleSheet.create({
    cardWrap: {
       marginVertical: 15,
-      paddingHorizontal: 15,
+      paddingHorizontal: 12,
       width: '100%',
       height: 180,
       flexDirection: 'row',
