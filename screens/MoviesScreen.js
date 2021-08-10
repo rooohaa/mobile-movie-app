@@ -13,18 +13,19 @@ const MoviesScreen = () => {
    const [activeTab, setActiveTab] = useState('popular');
 
    useEffect(() => {
-      setLoading(true);
-      fetchMovies(activeTab)
-         .then((data) => setMovies(data.results))
-         .then(() => setLoading(false));
+      fetchAndSetMovies();
    }, []);
 
    useEffect(() => {
+      fetchAndSetMovies();
+   }, [activeTab]);
+
+   const fetchAndSetMovies = () => {
       setLoading(true);
       fetchMovies(activeTab)
          .then((data) => setMovies(data.results))
          .then(() => setLoading(false));
-   }, [activeTab]);
+   };
 
    const fetchMovies = async (endpoint) => {
       const res = await fetch(
