@@ -54,6 +54,7 @@ const MoviesScreen = () => {
          }
 
          setMovies(resData.results);
+         setActiveTab('');
          setLoading(false);
       } catch (e) {}
    };

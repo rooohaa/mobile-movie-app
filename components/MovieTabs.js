@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, StyleSheet, Button } from 'react-native';
-import Colors from '../constants/Colors';
+import { View, StyleSheet } from 'react-native';
+import { TabItem } from '../components/TabItem';
 
 const tabs = [
    {
@@ -29,11 +29,11 @@ const MovieTabs = ({ activeTab, onTabPress }) => {
    return (
       <View style={styles.tabsWrap}>
          {tabs.map(({ id, text, endPoint }) => (
-            <Button
+            <TabItem
                key={id}
-               title={text}
+               text={text}
+               isActive={activeTab === endPoint}
                onPress={() => onTabPress(endPoint)}
-               color={activeTab === endPoint ? Colors.primary : '#757575'}
             />
          ))}
       </View>
@@ -43,8 +43,9 @@ const MovieTabs = ({ activeTab, onTabPress }) => {
 const styles = StyleSheet.create({
    tabsWrap: {
       width: '100%',
-      paddingHorizontal: 5,
-      marginVertical: 5,
+      paddingHorizontal: 12,
+      marginTop: 5,
+      marginBottom: 15,
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet, Keyboard } from 'react-native';
 import Colors from '../constants/Colors';
+import { AppButton } from './AppButton';
 
 const SearchInput = ({ onSearch }) => {
    const [searchQuery, setSearchQuery] = useState('');
@@ -17,15 +18,11 @@ const SearchInput = ({ onSearch }) => {
             style={styles.input}
             value={searchQuery}
             onChangeText={(value) => setSearchQuery(value)}
-            placeholder="Search movies"
+            placeholder="Movie name"
             keyboardAppearance="dark"
             placeholderTextColor="#888"
          />
-         <Button
-            title="Search"
-            color={Colors.primary}
-            onPress={searchHandler}
-         />
+         <AppButton text="Search" onPress={searchHandler} />
       </View>
    );
 };
@@ -38,14 +35,14 @@ const styles = StyleSheet.create({
       alignItems: 'center',
    },
    input: {
-      width: '75%',
+      width: '74%',
       padding: 10,
-      borderRadius: 7,
-      marginRight: 5,
-      color: '#888',
-      height: 42,
-      fontSize: 16,
-      backgroundColor: '#333',
+      borderRadius: 6,
+      marginRight: 10,
+      color: '#fff',
+      height: 38,
+      fontSize: 15,
+      backgroundColor: Colors.inputBg,
    },
 });
 

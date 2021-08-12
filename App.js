@@ -8,7 +8,7 @@ import Colors from './constants/Colors';
 export default function App() {
    return (
       <View style={styles.container}>
-         <LoginScreen />
+         <MoviesScreen />
          <StatusBar style="dark" />
       </View>
    );
