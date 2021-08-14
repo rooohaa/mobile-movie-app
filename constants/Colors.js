@@ -4,4 +4,5 @@ export default {
    primary: '#ea0042',
    inputBg: '#312b45',
    darkBg: '#100e19',
+   light: '#d9d7e0',
 };

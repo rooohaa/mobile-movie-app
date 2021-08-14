@@ -9,7 +9,7 @@ export default function App() {
    return (
       <View style={styles.container}>
          <MoviesScreen />
-         <StatusBar style="dark" />
+         <StatusBar style="light" />
       </View>
    );
 }

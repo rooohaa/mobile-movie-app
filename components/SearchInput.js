@@ -39,10 +39,11 @@ const styles = StyleSheet.create({
       padding: 10,
       borderRadius: 6,
       marginRight: 10,
-      color: '#fff',
-      height: 38,
+      color: '#333',
+      height: 37,
       fontSize: 15,
-      backgroundColor: Colors.inputBg,
+      fontWeight: '500',
+      backgroundColor: Colors.light,
    },
 });
 

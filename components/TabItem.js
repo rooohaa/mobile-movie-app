@@ -17,6 +17,7 @@ const TabItem = ({ text, onPress, isActive }) => {
                style={{
                   ...styles.tabText,
                   color: activeColor,
+                  fontWeight: isActive ? '500' : '400',
                }}
             >
                {text}

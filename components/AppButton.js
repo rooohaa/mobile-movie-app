@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
    },
    btnText: {
       fontSize: 14,
+      fontWeight: '500',
       lineHeight: 17,
       color: '#fff',
    },

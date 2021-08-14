@@ -43,7 +43,7 @@ const MovieCard = ({ movieItem }) => {
 
 const styles = StyleSheet.create({
    cardWrap: {
-      marginVertical: 15,
+      marginVertical: 12,
       paddingHorizontal: 12,
       width: '100%',
       height: 180,
