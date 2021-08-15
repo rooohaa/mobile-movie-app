@@ -3,9 +3,12 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import api from '../constants/ApiValues';
 import { truncate } from '../utils';
 
-const MovieCard = ({ movieItem }) => {
+const MovieCard = ({ movieItem, onPress }) => {
    return (
-      <TouchableOpacity activeOpacity={0.5}>
+      <TouchableOpacity
+         activeOpacity={0.5}
+         onPress={() => onPress(movieItem.id)}
+      >
          <View style={styles.cardWrap}>
             <View style={styles.imgWrap}>
                <Image

@@ -28,9 +28,10 @@ const styles = StyleSheet.create({
    input: {
       width: '100%',
       borderRadius: 8,
-      backgroundColor: Colors.inputBg,
+      backgroundColor: Colors.light,
       padding: 14,
-      color: '#fff',
+      color: '#333',
+      fontWeight: '500',
    },
 });
 

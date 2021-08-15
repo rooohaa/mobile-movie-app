@@ -30,6 +30,7 @@ const SearchInput = ({ onSearch }) => {
 const styles = StyleSheet.create({
    searchWrap: {
       margin: 10,
+      marginTop: 14,
       width: '100%',
       flexDirection: 'row',
       alignItems: 'center',

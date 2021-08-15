@@ -6,7 +6,7 @@ import { MovieTabs } from '../components/MovieTabs';
 import Colors from '../constants/Colors';
 import api from '../constants/ApiValues';
 
-const MoviesScreen = () => {
+const MoviesScreen = ({ navigation }) => {
    const [movies, setMovies] = useState([]);
    const [loading, setLoading] = useState(false);
    const [warning, setWarning] = useState('');
@@ -59,6 +59,12 @@ const MoviesScreen = () => {
       } catch (e) {}
    };
 
+   const navigateToDetails = (id) => {
+      navigation.navigate('Details', {
+         id,
+      });
+   };
+
    return (
       <View style={styles.moviesWrapper}>
          <SearchInput onSearch={(query) => searchMovies(query)} />
@@ -77,7 +83,7 @@ const MoviesScreen = () => {
                color={Colors.primary}
             />
          ) : (
-            <MovieList movies={movies} />
+            <MovieList movies={movies} onCardPress={navigateToDetails} />
          )}
       </View>
    );

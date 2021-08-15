@@ -1,25 +1,48 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
-import { MoviesScreen } from './screens/MoviesScreen';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import { MovieStackScreen } from './screens/MovieStackScreen';
 import { LoginScreen } from './screens/LoginScreen';
-import Colors from './constants/Colors';
+import { ProfileScreen } from './screens/ProfileScreen';
+import { BookmarksScreen } from './screens/BookmarksScreen';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { MyTheme } from './constants/theme';
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
    return (
-      <View style={styles.container}>
-         <MoviesScreen />
-         <StatusBar style="light" />
-      </View>
+      <NavigationContainer theme={MyTheme}>
+         <Tab.Navigator
+            screenOptions={({ route }) => ({
+               tabBarIcon: ({ _, color, size }) => {
+                  let iconName;
+
+                  if (route.name === 'Home') {
+                     iconName = 'home';
+                  } else if (route.name === 'Profile') {
+                     iconName = 'person-circle-outline';
+                  } else if (route.name === 'Bookmarks') {
+                     iconName = 'bookmarks-outline';
+                  }
+
+                  return <Ionicons name={iconName} size={23} color={color} />;
+               },
+            })}
+         >
+            <Tab.Screen
+               name="Home"
+               options={{ headerShown: false }}
+               component={MovieStackScreen}
+            />
+            <Tab.Screen
+               name="Login"
+               options={{ headerShown: false }}
+               component={LoginScreen}
+            />
+            <Tab.Screen name="Bookmarks" component={BookmarksScreen} />
+            <Tab.Screen name="Profile" component={ProfileScreen} />
+         </Tab.Navigator>
+      </NavigationContainer>
    );
 }
-
-const styles = StyleSheet.create({
-   container: {
-      flex: 1,
-      backgroundColor: Colors.bgDarkColor,
-      alignItems: 'center',
-      paddingTop: 55,
-      paddingBottom: 10,
-   },
-});
