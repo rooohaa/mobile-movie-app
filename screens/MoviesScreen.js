@@ -59,9 +59,10 @@ const MoviesScreen = ({ navigation }) => {
       } catch (e) {}
    };
 
-   const navigateToDetails = (id) => {
+   const navigateToDetails = (id, name) => {
       navigation.navigate('Details', {
          id,
+         name,
       });
    };
 

@@ -7,7 +7,7 @@ const MovieCard = ({ movieItem, onPress }) => {
    return (
       <TouchableOpacity
          activeOpacity={0.5}
-         onPress={() => onPress(movieItem.id)}
+         onPress={() => onPress(movieItem.id, movieItem.title)}
       >
          <View style={styles.cardWrap}>
             <View style={styles.imgWrap}>

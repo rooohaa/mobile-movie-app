@@ -6,20 +6,27 @@ import {
    ActivityIndicator,
    ScrollView,
 } from 'react-native';
+import { CommentItem } from '../components/CommentItem';
+import { DetailsInfo } from '../components/DetailsInfo';
 import { RecommendationList } from '../components/RecommendationList';
 import api from '../constants/ApiValues';
 import Colors from '../constants/Colors';
 
-const MovieDetailScreen = ({ route }) => {
+const MovieDetailScreen = ({ route, navigation }) => {
    const [movie, setMovie] = useState({});
    const [loading, setLoading] = useState(false);
-   const { id } = route.params;
+   const { id, name } = route.params;
 
    useEffect(() => {
+      navigation.setOptions({ title: name });
       fetchMovieById(id)
          .then((data) => setMovie(data))
          .finally(() => setLoading(false));
    }, []);
+
+   useEffect(() => {
+      navigation.setOptions({ title: movie.title });
+   }, [movie]);
 
    const fetchMovieById = async (id) => {
       setLoading(true);
@@ -52,6 +59,7 @@ const MovieDetailScreen = ({ route }) => {
             />
          ) : (
             <ScrollView style={styles.container}>
+               <DetailsInfo movie={movie} />
                <View style={styles.recomsWrap}>
                   <Text style={styles.recoms}>We also recommend</Text>
                   <RecommendationList
@@ -59,8 +67,10 @@ const MovieDetailScreen = ({ route }) => {
                      onRecomPress={onRecommendationPress}
                   />
                </View>
-               <Text>{movie.title}</Text>
-               <Text>{movie.title}</Text>
+               <CommentItem
+                  author="Rakhatikk"
+                  comment="Love this movie! Very inspiring ouuu shit"
+               />
             </ScrollView>
          )}
       </View>
@@ -77,7 +87,7 @@ const styles = StyleSheet.create({
       borderBottomWidth: 0.5,
       borderColor: '#333',
       paddingVertical: 15,
-      paddingHorizontal: 10,
+      paddingHorizontal: 15,
    },
    recoms: {
       marginBottom: 15,
