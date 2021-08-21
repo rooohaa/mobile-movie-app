@@ -5,19 +5,61 @@ import {
    Text,
    ActivityIndicator,
    ScrollView,
+   LogBox,
 } from 'react-native';
 import { CommentItem } from '../components/CommentItem';
+import { Comments } from '../components/Comments';
 import { DetailsInfo } from '../components/DetailsInfo';
 import { RecommendationList } from '../components/RecommendationList';
 import api from '../constants/ApiValues';
 import Colors from '../constants/Colors';
 
+const comments = [
+   {
+      id: 1,
+      author: 'Dauka',
+      comment: 'nICE movie btw lol',
+   },
+   {
+      id: 2,
+      author: 'Dauka',
+      comment: 'nICE movie btw lol',
+   },
+   {
+      id: 3,
+      author: 'Dauka',
+      comment: 'nICE movie btw lol',
+   },
+   {
+      id: 4,
+      author: 'Dauka',
+      comment: 'nICE movie btw lol',
+   },
+   {
+      id: 5,
+      author: 'Dauka',
+      comment: 'nICE movie btw lol',
+   },
+   {
+      id: 6,
+      author: 'Dauka',
+      comment: 'nICE movie btw lol',
+   },
+   {
+      id: 7,
+      author: 'Dauka',
+      comment: 'nICE movie btw lol',
+   },
+];
+
 const MovieDetailScreen = ({ route, navigation }) => {
    const [movie, setMovie] = useState({});
    const [loading, setLoading] = useState(false);
+   const [isAllComments, setIsAllComments] = useState(false);
    const { id, name } = route.params;
 
    useEffect(() => {
+      LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
       navigation.setOptions({ title: name });
       fetchMovieById(id)
          .then((data) => setMovie(data))
@@ -67,9 +109,10 @@ const MovieDetailScreen = ({ route, navigation }) => {
                      onRecomPress={onRecommendationPress}
                   />
                </View>
-               <CommentItem
-                  author="Rakhatikk"
-                  comment="Love this movie! Very inspiring ouuu shit"
+               <Comments
+                  comments={isAllComments ? comments : comments.slice(0, 4)}
+                  isAllShown={isAllComments}
+                  onToggle={() => setIsAllComments(!isAllComments)}
                />
             </ScrollView>
          )}

@@ -18,9 +18,9 @@ const CommentItem = ({ author, comment }) => {
 
 const styles = StyleSheet.create({
    wrap: {
-      margin: 30,
       flexDirection: 'row',
       alignItems: 'center',
+      marginBottom: 25,
    },
    avatar: {
       width: 38,

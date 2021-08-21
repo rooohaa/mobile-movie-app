@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
    info: {
       paddingHorizontal: 15,
       width: '100%',
-      marginBottom: 25,
+      marginBottom: 20,
       alignItems: 'flex-start',
    },
    title: {
